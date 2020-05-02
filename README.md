@@ -1,4 +1,4 @@
-## Tuyrbulence generation using text-based input files
+## Wind turbulence generation using text-based input files
 
 For a more robust and time-efficient Matlab implementation, see https://se.mathworks.com/matlabcentral/fileexchange/68632-wind-field-simulation-the-fast-version.
 
