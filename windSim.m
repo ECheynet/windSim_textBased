@@ -282,7 +282,7 @@ t = t(1:indmax);
         % ---------------------------------------------
         % ---------------------------------------------
         %%
-        fr = f.*z./meanU;
+        fr = f.*z(:)./meanU(:);
         if strcmpi(component,'u')
             S = u_star.^2./f.*(102.*fr)./(1+33.*fr).^(5/3);
         elseif strcmpi(component,'v')
@@ -401,4 +401,3 @@ t = t(1:indmax);
         
     end
 end
-
