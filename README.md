@@ -17,7 +17,7 @@ The folder windSim.zip contains:
 -	1 input file INPUT_MAST.txt for Example2.m
 -	2 input files windData.txt and circle.txt for Example3.m
 -	The function windSim.m
--	3 examples files Example1.m, Example2.m, Example3.m
+-	4 examples files Example1.m, Example2.m, Example3.m and Example4.m
 -	The function coherence.m that computes the co-coherence.
 Notes:
 -	Simulating the wind field in a high number of points with a high sampling frequency may take a lot of time. 
