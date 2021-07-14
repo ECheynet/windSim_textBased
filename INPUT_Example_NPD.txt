@@ -1,0 +1,58 @@
+windSim Input File. 
+author: Etienne Cheynet
+Valid for windSim v7.4, 2020 Delimiter: tab
+----------------------------------------------------------------------
+------------        Time definition Options   ------------------------
+----------------------------------------------------------------------
+fs	8				sampling frequency (Hz)
+Duration	3600				Duration of the time series (s)
+----------------------------------------------------------------------
+------------     Turbulent Wind data Options    ----------------------
+----------------------------------------------------------------------
+stdU	2.6	(Required for the von karman model only) std of wind fluctuations for u-component (m/s)
+stdV	2.2	(Required for the von karman model only) std of wind fluctuations for w-component (m/s)
+stdW	1.56	(Required for the von karman model only) std of wind fluctuations for w-component (m/s)
+Lux	170	(Required for the von karman model only) turbulence length scale for u-component  -- along wind direction
+Lvx	100	(Required for the von karman model only) turbulence length scale for v-component -- along wind direction
+Lwx	35	(Required for the von karman model only) turbulence length scale for w-component -- along wind direction
+Cuy_1	7	co-coherence decay coefficient for u-component
+Cuz_1	10	co-coherence decay coefficient for u-component
+Cvy_1	7	co-coherence decay coefficient for v-component
+Cvz_1	10	co-coherence decay coefficient for v-component
+Cwy_1	7	co-coherence decay coefficient for w-component
+Cwz_1	10	co-coherence decay coefficient for w-component
+
+----------------------------------------------------------------------
+------------        Mean Wind speed Profile   ------------------------
+----------------------------------------------------------------------
+
+type:	NPD	wind spectrum: choice between 'Von Karman', 'Kaimal' or 'NPD'
+profile:	NPD	Mean wind profile: choice between : 'power', 'log'  or 'NPD'
+
+meanU	30						mean wind speed at reference height (useful only if "power" profile is selected). If the 'NPD' model is used, meanU is the hourly reference wind speed at 10 m asl
+zr	10							reference height (useful only if "power" profile is selected)
+a	0.15						coefficient for power law (useful only if "power" profile is selected)
+u_star	1 						friction velocity (m/s)(useful only if "log" profile is selected or if "Kaimal" model is used)
+roughness	0.01				roughness of the area (useful only if "log" profile is selected)
+----------------------------------------------------------------------
+------------        Grid Generation options   ------------------------
+----------------------------------------------------------------------
+Nyy	1							number of nodes along y axe
+Nzz	20							number of nodes along z axe
+Zmin	10						min altitude of grid for z-axe
+Zmax	90						max altitude of grid for z-axe
+Ymin	0						min longitude for y-axe
+Ymax	0					    max longitude for y-axe
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+	z-axe (vertical)
+	^	 Nyy
+	| - - - - - |
+	| + + + + + |
+	| + + + + + | Nzz
+	| + + + + + |
+	| + + + + + |
+	 - - - - - - -> y-axe (horizontal)
+----------------------------------------------------------------------
+NOTE : Do not add or remove any lines in this file!
+----------------------------------------------------------------------

@@ -119,9 +119,7 @@ for ii=1:Nfreq
         
     end
     
-  
-    
-    % turbulence spectrum
+     % turbulence spectrum
     if strcmpi(type,'von karman')
         Su= VonKarmanSpectrum(f(ii),nodes.U,stdU,Lux,'u');
         Sv= VonKarmanSpectrum(f(ii),nodes.U,stdV,Lvx,'v');
@@ -136,6 +134,8 @@ for ii=1:Nfreq
         Svw = zeros(size(Su)); % Can be modified by the user
     elseif strcmpi(type,'NPD')
         [Su] = NPDSpectrum(f(ii),Uref,nodes.Z);
+        Sv = zeros(Su);
+        Sw = zeros(Sw);
     else
         error(' spectrum type is unknown')
     end
@@ -256,11 +256,11 @@ t = t(1:indmax);
         data = [dataArray{1:end}];
     end
 
-   function [S] = NPDSpectrum(f,U10,z)
+   function [S] = NPDSpectrum(f,Uref,z)
         % ---------------------------------------------
         % INPUT
         % f: float; frequency is [1 x 1]
-        % U10: float; Hourly mean wind speed at 10 m asl [1x1]
+        % Uref: float; Hourly mean wind speed at 10 m asl [1x1]
         % z =  double; height about the surface is [Nyy*Nzzx1]
         % ---------------------------------------------
         % OUTPUT
@@ -268,9 +268,11 @@ t = t(1:indmax);
         % ---------------------------------------------
 
         
-        fr = 172*f.*(z(:)/10).^(2/3)*(U10./10).^(-3/4);
+        fr = 172*f.*(z/10).^(2/3)*(Uref./10).^(-3/4);
         n = 0.468;
-        S = 3.2.*U10.^2 .* (z(:)/10).^(0.45) .* (1+fr.^n).^(-5/(3*n));
+        S = 3.2.*Uref.^2 .* (z/10).^(0.45) .* (1+fr.^n).^(-5/(3*n));
+        
+        
    end
         
 

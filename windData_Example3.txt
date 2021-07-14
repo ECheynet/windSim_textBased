@@ -26,10 +26,10 @@ Cwz_1	10	co-coherence decay coefficient for w-component
 ------------        Mean Wind speed Profile   ------------------------
 ----------------------------------------------------------------------
 
-type:	Von Karman	wind spectrum: choice between 'Von Karman' or 'Kaimal'
-profile:	log	Mean wind profile: choice between : 'power' or 'log'
+type:	Von Karman	wind spectrum: choice between 'Von Karman', 'Kaimal' or 'NPD'
+profile:	log	Mean wind profile: choice between : 'power', 'log'  or 'NPD'
 
-meanU	20	mean wind speed at reference height (useful only if "power" profile is selected)
+meanU	20	mean wind speed at reference height (useful only if "power" profile is selected). If the 'NPD' model is used, meanU is the hourly reference wind speed at 10 m asl
 zr	60	reference height (useful only if "power" profile is selected)
 a	0.15	coefficient for power law (useful only if "power" profile is selected)
 u_star	1	friction velocity (m/s)(useful only if "log" profile is selected or if "Kaimal" model is used)
