@@ -164,7 +164,7 @@ end
 
 %% Apply IFFT
 
-Nu = [A(1:Nfreq,:) ; real(A(Nfreq,:)); conj(flipud(A(2:Nfreq,:)))];
+Nu = [zeros(1,size(A,2)); A(1:Nfreq-1,:) ; real(A(Nfreq,:)); conj(flipud(A(1:Nfreq-1,:)))];
 speed=real(ifft(Nu).*sqrt(Nfreq./(dt)));
 
 u = speed(:,1:Nm);
